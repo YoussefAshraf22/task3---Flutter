@@ -23,106 +23,101 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          Container(
-            color: Color.fromARGB(255, 62, 133, 65),
-            height: 110,
-            padding: EdgeInsetsDirectional.only(top: 15),
-            child: const Column(children: [
-              Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    "WhatsApp",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(width: 180),
-                  Icon(Icons.search, color: Colors.white),
-                  SizedBox(width: 20),
-                  Icon(Icons.more_vert, color: Colors.white),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.camera_alt,
-                    color: Colors.grey,
-                    size: 25,
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
+          child: Column(children: [
+        Container(
+          color: Color.fromARGB(255, 62, 133, 65),
+          height: 110,
+          padding: EdgeInsetsDirectional.only(top: 15),
+          child: const Column(children: [
+            Row(
+              children: [
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  "WhatsApp",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(width: 180),
+                Icon(Icons.search, color: Colors.white),
+                SizedBox(width: 20),
+                Icon(Icons.more_vert, color: Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 10,
+                ),
+                Icon(
+                  Icons.camera_alt,
+                  color: Colors.grey,
+                  size: 25,
+                ),
+                SizedBox(
+                  width: 30,
+                ),
 
-                  Text(
-                    "CHATS",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  //  SizedBox(height: 5,),
+                Text(
+                  "CHATS",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                //  SizedBox(height: 5,),
 
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Text(
-                    "STATUS",
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  //  SizedBox(height: 5,),
+                SizedBox(
+                  width: 50,
+                ),
+                Text(
+                  "STATUS",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                //  SizedBox(height: 5,),
 
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Text(
-                    "CALLS",
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                ],
-              )
-            ]),
-          ),
-          const User(),
-          const Line(),
-          const User(),
-          const Line(),
-          const User(),
-          const Line(),
-          const User(),
-          const Line(),
-          const User(),
-          const SizedBox(height: 20),
-          const Text(
-            "Tap and hold on chat for more options",
+                SizedBox(
+                  width: 50,
+                ),
+                Text(
+                  "CALLS",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+              ],
+            )
+          ]),
+        ),
+        User(name: 'Youssef', text: 'hi bro'),
+        const Line(),
+        User(name: 'Saif', text: 'Done!'),
+        const Line(),
+        User(name: '021547794652', text: 'What do you want ?'),
+        const Line(),
+        User(name: 'Private Number', text: 'I am wating'),
+        const Line(),
+        //  User(),
+        const SizedBox(height: 20),
+        const Text("Tap and hold on chat for more options",
             style: TextStyle(
               color: Colors.grey,
               fontSize: 15,
-            ),
-            textAlign: TextAlign.center,
-          )
-        ],
-      )),
+            ))
+      ])),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.green,
@@ -132,14 +127,18 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class User extends StatelessWidget {
-  const User({super.key});
+  String? name;
+  String? text;
+
+  User({required this.name, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsetsDirectional.only(start: 10, top: 20),
-      child: const Row(children: [
+      padding: EdgeInsetsDirectional.only(start: 10, top: 20),
+      child: Row(children: [
         Icon(
           Icons.account_circle,
           color: Colors.grey,
@@ -154,26 +153,15 @@ class User extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "User",
+                  name!,
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  width: 180,
-                ),
-                Text(
-                  "7:22 PM",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500),
-                )
               ],
             ),
-            // SizedBox(height: 15,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -182,12 +170,22 @@ class User extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 Text(
-                  "Hello",
+                  text!,
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15,
                       fontWeight: FontWeight.w500),
                 ),
+                SizedBox(
+                  width: 80,
+                ),
+                Text(
+                  "7:22 PM",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500),
+                )
               ],
             )
           ],
